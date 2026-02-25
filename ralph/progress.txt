@@ -1,0 +1,20 @@
+# Ralph Progress Log - Sokoban Web Game
+
+## Codebase Patterns
+<!-- 在这里记录可复用的代码模式，所有迭代都会先看这里 -->
+<!-- 初始化为空，迭代中逐步填充 -->
+
+---
+
+## 项目初始化
+**时间**: 2026-02-25 18:10
+**实现**: 创建项目结构、PRD 文档
+**创建的文件**:
+- ralph/PRD.md
+- ralph/prd.json
+- ralph/progress.txt
+- src/{game,renderer,levels,ui}/
+- tests/
+- public/
+
+**下一步**: 等待用户确认开始第一次迭代
