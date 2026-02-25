@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>推箱子游戏 - Sokoban</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 推箱子游戏</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" id="menuBtn">主菜单</a></li>
+                    <li><a href="#" id="resetBtn">重置</a></li>
+                    <li><a href="#" id="undoBtn">撤销</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="game-info">
+                <div class="level-display">
+                    <span>关卡：</span>
+                    <span id="levelNumber">1</span>
+                </div>
+                <div class="moves-display">
+                    <span>步数：</span>
+                    <span id="moveCount">0</span>
+                </div>
+            </div>
+
+            <div class="game-container">
+                <canvas id="gameCanvas"></canvas>
+            </div>
+
+            <div class="controls">
+                <p class="instructions">
+                    <strong>操作说明：</strong> 使用方向键或 WASD 移动角色，推动箱子到目标位置
+                </p>
+                <div class="mobile-controls">
+                    <button class="control-btn" id="upBtn">↑</button>
+                    <div>
+                        <button class="control-btn" id="leftBtn">←</button>
+                        <button class="control-btn" id="downBtn">↓</button>
+                        <button class="control-btn" id="rightBtn">→</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Sokoban Web Game</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script type="module" src="../src/main.js"></script>
+</body>
+</html>
