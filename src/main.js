@@ -8,6 +8,7 @@ import { GameEngine } from './game/engine.js';
 import { CanvasRenderer } from './renderer/canvas.js';
 import { LevelLoader } from './levels/parser.js';
 import { UIController } from './ui/controls.js';
+import { LevelMenu } from './ui/level-menu.js';
 
 /**
  * Main game class that orchestrates all components
@@ -23,6 +24,7 @@ class SokobanGame {
     this.engine = null;
     this.renderer = null;
     this.uiController = null;
+    this.levelMenu = null;
     this.currentLevel = 1;
     this.moves = 0;
 
@@ -47,6 +49,11 @@ class SokobanGame {
       
       // Initialize UI controller
       this.uiController = new UIController(this);
+      
+      // Initialize level menu
+      this.levelMenu = new LevelMenu(this.levelLoader, (levelId) => {
+        this.loadLevel(levelId);
+      });
 
       // Setup canvas size
       this.setupCanvas();
@@ -107,6 +114,10 @@ class SokobanGame {
    */
   handleWin() {
     console.log('🎉 Level completed!');
+    
+    // Mark current level as completed
+    this.levelMenu.markCompleted(this.currentLevel);
+    
     // Note: confetti is loaded from CDN
     if (typeof confetti !== 'undefined') {
       confetti({
@@ -169,6 +180,41 @@ class SokobanGame {
   showError(message) {
     const container = document.querySelector('.game-container');
     container.innerHTML = `<div class="error">${message}</div>`;
+  }
+
+  /**
+   * Load a specific level
+   * @param {number} levelId - Level ID to load
+   */
+  loadLevel(levelId) {
+    console.log(`🎯 Loading level ${levelId}...`);
+    
+    try {
+      const levelData = this.levelLoader.loadLevel(levelId);
+      this.currentLevel = levelId;
+      this.engine = new GameEngine(levelData);
+      this.moves = 0;
+      
+      this.setupCanvas();
+      this.uiController.updateMoves(0);
+      this.uiController.updateLevel(levelId);
+      
+      console.log('✅ Level loaded successfully');
+    } catch (error) {
+      console.error('❌ Failed to load level:', error);
+      this.showError(`无法加载关卡 ${levelId}: ${error.message}`);
+    }
+  }
+
+  /**
+   * Show level menu
+   */
+  showLevelMenu() {
+    if (!this.levelMenu.container) {
+      const menu = this.levelMenu.create();
+      document.body.appendChild(menu);
+    }
+    this.levelMenu.show();
   }
 }
 

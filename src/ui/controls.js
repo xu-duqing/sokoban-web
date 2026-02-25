@@ -129,9 +129,11 @@ export class UIController {
   }
 
   /**
-   * Show menu (placeholder)
+   * Show menu
    */
   showMenu() {
-    alert('主菜单功能开发中...');
+    if (this.game.levelMenu) {
+      this.game.levelMenu.show();
+    }
   }
 }
