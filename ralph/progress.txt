@@ -2,12 +2,15 @@
 
 ## Codebase Patterns
 <!-- 在这里记录可复用的代码模式，所有迭代都会先看这里 -->
-<!-- 初始化为空，迭代中逐步填充 -->
+
+- **ES6 模块导入**: 使用 `export class` 和 `import {} from` 组织代码
+- **JSDoc 注释**: 所有函数和类都有详细的 JSDoc 注释用于类型检查
+- **测试模式**: 使用 Jest + Babel，配置 `.babelrc` 和 `jest.config.js`
+- **Git 提交格式**: `feat: [ID] - Title` 遵循约定式提交
 
 ---
 
-## 项目初始化
-**时间**: 2026-02-25 18:10
+## 2026-02-25 18:10 - 项目初始化
 **实现**: 创建项目结构、PRD 文档
 **创建的文件**:
 - ralph/PRD.md
@@ -18,3 +21,51 @@
 - public/
 
 **下一步**: 等待用户确认开始第一次迭代
+
+---
+
+## 2026-02-25 19:20 - US-001: 项目初始化和基础结构
+**实现**: 完整的项目搭建
+**修改的文件**:
+- package.json (依赖配置)
+- .eslintrc.js (ESLint 配置)
+- .babelrc (Babel 配置)
+- jest.config.js (Jest 配置)
+- .gitignore (Git 忽略规则)
+- public/index.html (HTML 模板)
+- public/styles.css (CSS 样式，渐变背景)
+- src/main.js (入口文件，游戏主类)
+- src/game/engine.js (游戏引擎核心逻辑)
+- src/renderer/canvas.js (Canvas 渲染器)
+- src/levels/parser.js (关卡数据解析器)
+- src/ui/controls.js (UI 控制器)
+- tests/engine.test.js (单元测试)
+
+**学习成果**:
+- Patterns discovered:
+  - 使用 ES6 类组织代码
+  - 模块化架构（game/renderer/levels/ui 分离）
+  - JSDoc 注释用于类型检查
+  
+- Gotchas:
+  - ESLint 默认不支持浏览器全局变量（需在 globals 中添加 confetti）
+  - Jest 需要配置 Babel 来处理 ES6 模块
+  - history 数组需要限制大小防止内存泄漏
+  
+- Useful context:
+  - 游戏循环使用 requestAnimationFrame 确保 60 FPS
+  - 移动端适配使用 CSS 媒体查询
+  - 键盘和按钮双重控制确保可访问性
+
+**质量检查**:
+- ✅ ESLint: 无错误
+- ✅ Jest: 8/8 测试通过
+- ✅ Git: 已提交
+
+**提前实现**:
+- US-002: 关卡解析器已在 levels/parser.js 实现
+- US-003: 游戏引擎已在 game/engine.js 实现  
+- US-004: 渲染器已在 renderer/canvas.js 实现
+- US-005: UI 控制器已在 ui/controls.js 实现
+
+**下一步**: 在浏览器中验证游戏，然后继续 US-006（关卡选择界面）

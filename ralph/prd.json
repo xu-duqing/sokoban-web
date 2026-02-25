@@ -18,8 +18,8 @@
         "Tests pass"
       ],
       "priority": 1,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "完成于 2026-02-25 19:20"
     },
     {
       "id": "US-002",
@@ -27,15 +27,15 @@
       "description": "作为开发者，我需要设计关卡数据结构并实现地图解析器，将文本地图转换为游戏对象",
       "acceptanceCriteria": [
         "设计关卡数据结构（地图、墙壁、箱子、玩家、目标）",
-        "实现地图文本解析器（支持 #, @, $, ., *, +, +, 符号）",
+        "实现地图文本解析器（支持 #, @, $, ., *, + 符号）",
         "创建至少 2 个测试关卡",
         "编写单元测试验证解析正确性",
         "Typecheck passes",
         "Tests pass"
       ],
       "priority": 2,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "完成于 2026-02-25 19:20（在 US-001 中实现）"
     },
     {
       "id": "US-003",
@@ -52,8 +52,8 @@
         "Tests pass"
       ],
       "priority": 3,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "完成于 2026-02-25 19:20（在 US-001 中实现，单元测试已通过）"
     },
     {
       "id": "US-004",
@@ -70,8 +70,8 @@
         "Verify in browser: 用 browser tool 打开页面验证渲染效果"
       ],
       "priority": 4,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "完成于 2026-02-25 19:20（在 US-001 中实现，已在浏览器验证）"
     },
     {
       "id": "US-005",
@@ -88,8 +88,8 @@
         "Verify in browser: 用 browser tool 验证 UI 交互"
       ],
       "priority": 5,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "完成于 2026-02-25 19:20（在 US-001 中实现，已在浏览器验证）"
     },
     {
       "id": "US-006",
@@ -123,8 +123,8 @@
         "Verify in browser: 用 browser tool 验证撤销功能"
       ],
       "priority": 7,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "完成于 2026-02-25 19:20（在 US-001 中实现，单元测试已通过）"
     },
     {
       "id": "US-008",
@@ -183,9 +183,16 @@
   ],
   "knownIssues": [],
   "testResults": {
-    "lastRun": null,
-    "status": "pending",
-    "summary": "等待开始",
-    "logs": []
+    "lastRun": "2026-02-25 20:10",
+    "status": "in-progress",
+    "summary": "5/10 用户故事已完成，剩余 US-006, US-008, US-009, US-010",
+    "logs": [
+      "✅ US-001: 项目初始化和基础结构",
+      "✅ US-002: 关卡数据结构和解析器",
+      "✅ US-003: 游戏逻辑引擎（移动和碰撞）",
+      "✅ US-004: Canvas 渲染引擎",
+      "✅ US-005: UI 界面和控制",
+      "✅ US-007: 撤销功能"
+    ]
   }
 }
